@@ -8,6 +8,10 @@
 
 <?php include('../inc/header.php'); ?>
 
-<h1>Logout</h1>
+<?php
+    session_start();
+    session_destroy();
+    header("location:". ROOT_URL . "index.php");
+?>
 
 <?php include('../inc/footer.php'); ?>

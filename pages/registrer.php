@@ -41,17 +41,17 @@
         }elseif(!preg_match("/^[a-zA-Z]*$/", $by_navn)){
             header("Location: registrer.php?error=invalidBy&username=".$user_name."&fornavn=".$fornavn."&efternavn=".$efternavn."&email=".$email."&postnr=".$postnr."&telenr=".$telenr);
             exit();
-        }elseif ($pass_word !== $gentagPassword){
+        }elseif ($pass_word !== $gentag_password){
             //Stemmer de to passwords overens med hinanden
             header("Location: registrer.php?error=PasswordPasserIkke&username=".$user_name."&fornavn=".$fornavn."&efternavn=".$efternavn."&email=".$email."&postnr=".$postnr."&by=".$by_navn."&telenr=".$telenr);
             exit();
         }else{
             //Checker om brugernavnet allerede findes
-            $sql = "SELECT user_name FROM login WHERE username = ?";
-            $statement = msqli_stmt_init($conn);
-            if (!mqsli_stmt_prepare($statement, $sql)){
+            $sql = "SELECT user_name FROM login WHERE user_name = ?";
+            $statement = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($statement, $sql)){
                 //Hvis den ikke kan finde database og/eller tabellen giver den fejlbesked
-                header("Location: registrer.php?error= sqlerror");
+                header("Location: registrer.php?error=sqlerror");
                 exit();
             }else{
                 mysqli_stmt_bind_param($statement, "s", $user_name); //Sætter det indtastede username ind i statement variablen ("s" = fortæller at det er en string. Man kan også have f.eks "ss" eller "si" osv)
@@ -60,7 +60,7 @@
                 $resultCheck = mysqli_stmt_num_rows($statement); //Fortæller hvor mange gange den fandt username'et i databasen (burde kun være 0 eller 1 i dette tilfælde)
                 if($resultCheck > 0){
                     //Brugernavnet findes allerede i databasen
-                    header("Location: registrer.php?error=usernameTaken&fornavn=".$fornavn."&efternavn=".$efternavn."&email=".$email."&postnr=".$postnr."&by=".$by_navn."&telenr=".$telenr);
+                    header("Location: registrer.php?error=usernameTaken&fornavn=".$for_navn."&efternavn=".$efter_navn."&email=".$email."&postnr=".$post_nr."&by=".$by_navn);
                     exit(); 
                 } else {
                     //Alt er fint, og oplysningerne bliver sat ind i databasen
@@ -70,8 +70,8 @@
                     $sql = "INSERT INTO login(user_name, pass) values('$user_name', '$hashed')";
                     $result = mysqli_query($conn, $sql) or die ("Query virker overhovedet ikke!");
 
-                    $sqlOplysninger = "INSERT INTO oplysninger(for_navn, efter_navn, email, post_nr, by_navn, telefon_nr) values('$fornavn', '$efternavn', '$email', '$postnr', '$by_navn', '$telenr')";
-                    $resultOplysninger = mysqli_query($conn, $sqlOplysninger) or die ("Query virker overhovedet ikke!");
+                    $sqlOplysninger = "INSERT INTO user_oplysninger(login_id, for_navn, efter_navn, email, post_nr, by_navn) values('$user_name', '$for_navn', '$efter_navn', '$email', '$post_nr', '$by_navn')";
+                    $resultOplysninger = mysqli_query($conn, $sqlOplysninger) or die ("Oplysnings q uery virker overhovedet ikke!");
                     header("location: login.php");
                 }
             }
@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label><h3>Email</h3><label>
+                <label for="email"><h3>Email</h3><label>
                 <input type="text" class="form-control" name="email" id="email" placeholder="eks. tester@test.dk">
                 <p id="emailfail"></p>
             </div>
