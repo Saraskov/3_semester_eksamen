@@ -18,7 +18,7 @@
 
         if (mysqli_num_rows($result) == 1){
             session_start();
-            $_SESSION['adgang'] = "adgang";
+            $_SESSION['adgang'] = "$user_name";
 
             header("location:games.php");
         } else {
