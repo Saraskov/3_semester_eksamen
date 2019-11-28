@@ -69,8 +69,7 @@
                     
                     $sql = "INSERT INTO login(user_name, pass) values('$user_name', '$hashed')";
                     $result = mysqli_query($conn, $sql) or die ("Query virker overhovedet ikke!");
-
-                    $sqlOplysninger = "INSERT INTO user_oplysninger(login_id, for_navn, efter_navn, email, post_nr, by_navn) values('$user_name', '$for_navn', '$efter_navn', '$email', '$post_nr', '$by_navn')";
+                    $sqlOplysninger = "INSERT INTO user_oplysninger(user_name, for_navn, efter_navn, email, post_nr, by_navn, image) values('$user_name', '$for_navn', '$efter_navn', '$email', '$post_nr', '$by_navn', 'pr_koala.png')";
                     $resultOplysninger = mysqli_query($conn, $sqlOplysninger) or die ("Oplysnings q uery virker overhovedet ikke!");
                     header("location: login.php");
                 }
@@ -83,69 +82,71 @@
 <?php include('../inc/header.php'); ?>
 
 <div class="container">
+    <h1 class="site-header">Registrer</h1>
     <div class="form-group">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onSubmit="return checkform()" id="checkform">
-            <legend><h1>Registrer</h1></legend>
-            <div class="form-group">
-                <label for="username"><h3>Brugernavn</h3></label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="eks. Hanne1234 (mindst 4 tegn)">
-                <p id="usernamefail"></p>
-            </div>
             <div class="form-group">
                 <div class="row">
-                    <div class="col">
-                        <label for="password"><h3>Kodeord</h3></label>
+                    <div class="col-lg-6 col-md-12">
+                        <label for="username"><h4>Brugernavn</h4></label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="eks. Hanne1234 (mindst 4 tegn)">
+                        <p id="usernamefail"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <label for="password"><h4>Kodeord</h4></label>
                         <input type="text" class="form-control" name="password" placeholder="Mindst 8 tegn">
                         <p id="passwordfail"></p>
                     </div>
-                    <div class="col">
-                        <label for="gentagPassword"><h3>Gentag kodeord</h3></label>
+                    <div class="col-lg-6 col-sm-12">
+                        <label for="gentagPassword"><h4>Gentag kodeord</h4></label>
                         <input type="text" class="form-control" name="gentagPassword">
                         <p id="genpassfail"></p>
                     </div>
                 </div>
             </div>
             <br>
-            <h1>Dine oplysninger</h1>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label><h3>Navn</h3><label>
+                        <h3>Dine oplysninger</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="fornavn" id="fornavn" placeholder="Fornavn">
+                    <div class="col-lg-6 col-sm-12">
+                        <label for="fornavn"><h4>Fornavn</h4></label>
+                        <input type="text" class="form-control" name="fornavn" id="fornavn">
                         <p id="namefail"></p>
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="efternavn" id="efternavn" placeholder="Efternavn">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email"><h3>Email</h3><label>
-                <input type="text" class="form-control" name="email" id="email" placeholder="eks. tester@test.dk">
-                <p id="emailfail"></p>
-            </div>
-            <div class="form-group">
-            <div class="row">
-                    <div class="col">
-                        <label><h3>By</h3><label>
+                    <div class="col-lg-6 col-sm-12">
+                        <label for="efternavn"><h4>Efternavn</h4></label>
+                        <input type="text" class="form-control" name="efternavn" id="efternavn">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="postnr" id="postnr" placeholder="postnr">
+                    <div class="col-lg-6 col-md-12">
+                        <label for="email"><h4>Email</h4></label>
+                        <input type="text" class="form-control" name="email" id="email" placeholder="eks. tester@test.dk">
+                        <p id="emailfail"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <label for="postnr"><h4>Post nr</h4></label>
+                        <input type="text" class="form-control" name="postnr" id="postnr">
                         <p id="postfail"></p>
                     </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="by" id="by" placeholder="By">
+                    <div class="col-lg-6 col-sm-12">
+                        <label for="by"><h4>By</h4></label>
+                        <input type="text" class="form-control" name="by" id="by">
                         <p id="byfail"></p>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" name="submit"><h5>Opret</h5></button>
+            <button class="btn" name="submit"><h4>Opret</h4></button>
         </form>
     </div>
 </div>

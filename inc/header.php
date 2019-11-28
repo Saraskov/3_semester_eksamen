@@ -9,4 +9,5 @@
     <link rel="icon" href="<?php echo ROOT_URL; ?>illustrationer/koala/koala_logo.png">
 </head>
 <body>
+<?php require('session.php'); ?>
 <?php require('main_nav.php') ?>

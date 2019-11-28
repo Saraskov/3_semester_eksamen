@@ -1,0 +1,49 @@
+@mixin placeholdertext {
+    color: $par-text-color;
+    opacity: 0.7;
+    font-size: $placeholder-text-size;
+}
+
+form{
+    padding: 20px 0 40px;
+    background: $white;
+    max-width: 800px;
+    margin: auto;
+
+    .form-group{
+        margin: 0 15px;
+
+        h4{
+            margin-top: 20px;
+        }
+
+        .form-control{
+            border: 1px solid $border-color;
+            padding: 20px 10px;
+            border-radius: 10px;
+        }
+        ::-webkit-input-placeholder { /* Edge */
+            @include placeholdertext();
+        }
+        
+        :-ms-input-placeholder { /* Internet Explorer */
+            @include placeholdertext();
+        }
+        
+        ::placeholder {
+            @include placeholdertext();
+        }
+    }
+}
+
+.btn{
+    background-color: $dark;
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;
+
+    h4{
+        color: $white;
+        margin: 0 20px;
+    }
+}

@@ -1,5 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Dekko&display=swap');
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headers;
+    color: $dark;
+}
 
-h1 {
-    font-family: 'Dekko', cursive;
+h1{
+    font-size: 40px;
+}
+.site-header{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+h2{
+    font-size: 35px;
+}
+
+h3{
+    font-size: 30px;
+}
+
+h4{
+    font-size: 24px;
+}
+
+h5{
+    font-size: 24px;
+    color: $light !important;
+    line-height: 0.5;
+}
+
+p{
+    color: $par-text-color; 
+    font-size: 18px;
 }

@@ -1,0 +1,13 @@
+.mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 768px){
+    .mobile{
+        display: block;
+    }
+
+    .no_mobile{
+        display: none;
+    }
+}

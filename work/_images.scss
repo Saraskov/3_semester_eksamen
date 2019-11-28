@@ -1,8 +1,73 @@
-.navbar-brand{
-    max-width: 100px;
-    height: auto;
+//Styles for images and backgrounds (container, footer)
 
-    img{
-        width: 100%;
+//General background style
+body{
+    background: url(../illustrationer/bagground.png);
+    background-repeat: repeat;
+
+    .container{
+        background: $background-color;
+        padding-bottom: 40px;
     }
+}
+
+//Navbar style
+.navbar{
+    background: $grey-background;
+    .navbar-brand{
+        max-width: 100px;
+        height: auto;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    #avatar-item{
+        padding-right: 0;
+    }
+    .avatar {
+        margin-top: -5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .nav-link{
+          height: 50px;
+          
+          h4{
+            vertical-align: middle;
+          }
+      }
+}
+
+//Responsive images
+.img-fluid{
+    width: 100%;
+}
+
+//White backgound with and without gutters
+.white{
+    background: $white;
+    padding: 20px;
+    text-align: center;
+    margin: 40px 0;
+    
+    .row{
+        margin: 10px 0;
+    }
+}
+
+.gutter{
+    margin: 40px 20px;
+}
+
+
+//Footer style
+footer{
+    height: 100px;
+    margin-top: 40px;
+    background: $grey-background;
 }

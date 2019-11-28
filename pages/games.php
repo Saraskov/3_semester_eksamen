@@ -7,14 +7,32 @@
 ?>
 <?php include('../inc/header.php'); ?>
 
-<h1>Games</h1>
-<?php
-    session_start();
-    if(isset($_SESSION['adgang'])){
-        echo "<center><h1>Så er det spille tid!</h1><center>";
-    } else {
-        echo "<center><h1>Fuck af</h1><center>";
-    }
-?>
+<div class="container <?php if(isset($_SESSION['adgang'])) echo 'hidden';?>">
+    <h1 class="site-header">Spil</h1>
+    <h3 class="text-center">Du skal være logget på for at spille</h3>
+    <button class="btn"><a href="registrer.php"><h4>Opret en bruger</h4></a></button>
+</div>
+
+<div class="container <?php if(!isset($_SESSION['adgang'])) echo 'hidden'; ?>">
+    <h1 class="site-header">Spil</h1>
+    <div class="row gutter">
+        <a href="games/mazegame/mazegame.php" class="col-lg-4 col-md-6 col-12">
+            <div class="white">
+                <img src="../illustrationer/koala/coverbillede.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title">Den lille sultne drage</h3>
+                </div>
+            </div>
+        </a>
+        <a href="games/mazegame/mazegame.php" class="col-lg-4 col-md-6 col-12">
+            <div class="white">
+                <img src="../illustrationer/koala/coverbillede.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title">Den lille sultne drage</h3>
+                </div>
+            </div>
+        </a>
+    </div> 
+</div>
 
 <?php include('../inc/footer.php'); ?>

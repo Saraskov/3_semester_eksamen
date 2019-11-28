@@ -33,20 +33,26 @@
 <?php include('../inc/header.php'); ?>
 
 <div class="container">
-    <div class="form-group">
+    <h1 class="site-header">Login</h1>
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-            <fieldset>
-                <legend><h1>Login</h1></legend>
-                <label for="username"><h3>Username</h3></label>
-                <input type="text" class="form-control" name="username">
-                <label for="password"><h3>Password</h3></label>
-                <input type="text" class="form-control" name="password">
-            </fieldset>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="username"><h4>Brugernavn</h4></label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="password"><h4>Kodeord</h4></label>
+                        <input type="text" class="form-control" name="password">
+                    </div>
+                </div>
+            </div>
             <br>
-            <button type="submit" class="btn btn-primary" name="submit"><h5>Login</h5></button>
+            <button type="submit" class="btn" name="submit"><h4>Login</h4></button>
         </form>
-        <h3><?= $output ?></h3>
-    </div>
+        <h4><?= $output ?></h4>
 </div>
 
 <?php include('../inc/footer.php'); ?>

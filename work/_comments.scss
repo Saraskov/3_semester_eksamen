@@ -1,0 +1,46 @@
+.comments{
+    .card{
+        margin: 10px 0;
+        padding: 10px;
+        border: none;
+        background-color: $grey-background;
+        box-shadow: 2px 2px 4px $box-shadow;
+    }
+
+    .row{
+        margin: 0;
+
+        img{
+            max-width: 100px;
+            height: auto;
+            margin: auto
+        }
+
+        small{
+            width: 100%;
+            text-align: center;
+        }
+
+        .card-body{
+            padding: 20px 0;
+            text-align: left;
+        }
+    }
+}
+
+
+//Highscore
+.highscore{
+
+    .card{
+        margin: 5px 0;
+        .col-1, .col-4, .col-7 {
+        padding: 0!important;
+        }
+    }
+
+    .avatar{
+    width: 50px;
+    height: auto;
+    }
+}
