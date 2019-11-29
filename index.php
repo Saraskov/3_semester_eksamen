@@ -11,7 +11,6 @@
 
     //Fetch data
     $posts = mysqli_fetch_all($posts_result, MYSQLI_ASSOC);
-    //Free result
     //Free Result
     mysqli_free_result($posts_result); 
     
@@ -65,7 +64,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="row center">
-                                <img src="illustrationer/koala/<?php echo $post['avatar']; ?>" class="card-img" alt="avatar image">
+                                <img class="img-comment" src="illustrationer/koala/<?php echo $post['avatar']; ?>" class="card-img" alt="avatar image">
                             </div>
                             <div class="row center">
                                 <small class="text-muted">Created on <?php echo $post['created_at']; ?></small>
@@ -82,7 +81,7 @@
                 <?php 
                     $i++;
                     endforeach; ?>
-                <button class="btn"><a href='#'><h4>Se flere</h4></a></a>
+                <button class="btn"><a href='#'><h4>Se flere</h4></a></button>
             </div>
         </div>
     </div>

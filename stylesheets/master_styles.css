@@ -7663,6 +7663,13 @@ body {
   .white .row {
     margin: 10px 0; }
 
+.transparent {
+  padding: 20px;
+  text-align: center;
+  margin: 40px 0; }
+  .transparent .row {
+    margin: 10px 0; }
+
 .gutter {
   margin: 40px 20px; }
 
@@ -7701,7 +7708,7 @@ form {
 
 .btn {
   background-color: #715159;
-  margin: 0 auto;
+  margin: 10px auto;
   display: block;
   border-radius: 10px; }
   .btn h4 {
@@ -7716,7 +7723,7 @@ form {
   box-shadow: 2px 2px 4px #DDD; }
 .comments .row {
   margin: 0; }
-  .comments .row img {
+  .comments .row .img-comment {
     max-width: 100px;
     height: auto;
     margin: auto; }
