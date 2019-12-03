@@ -47,3 +47,24 @@ form{
         margin: 0 20px;
     }
 }
+
+//In games
+.game{
+    position: relative;
+
+    #canvas{
+        z-index: -1;
+    }
+    #game-background{
+        position: absolute;
+        z-index: 99;
+        background-color: $game-background;
+        height: 600px;
+        width: 600px;
+        top: 0;
+
+        form{
+            text-align: center;
+        }
+    }
+}

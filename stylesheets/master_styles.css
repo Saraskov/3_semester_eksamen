@@ -7715,6 +7715,20 @@ form {
     color: #FFFF;
     margin: 0 20px; }
 
+.game {
+  position: relative; }
+  .game #canvas {
+    z-index: -1; }
+  .game #game-background {
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(255, 250, 249, 0.61);
+    height: 600px;
+    width: 600px;
+    top: 0; }
+    .game #game-background form {
+      text-align: center; }
+
 .comments .card {
   margin: 10px 0;
   padding: 10px;
@@ -7740,6 +7754,9 @@ form {
     padding: 0 !important; }
 .highscore .avatar {
   width: 50px;
+  height: auto; }
+.highscore img {
+  width: 100%;
   height: auto; }
 
 .mobile {

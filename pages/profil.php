@@ -21,13 +21,22 @@
 
     //POSTS AND USERS CURRENT AVATAR
     //Find data
-    $posts_query = "SELECT * FROM posts WHERE author = '$login_session' ORDER BY created_at DESC"; //HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEER
+    $posts_query = "SELECT *
+                    FROM posts
+                    WHERE author = '$login_session'
+                    ORDER BY created_at DESC";
     $posts_result = mysqli_query($conn, $posts_query);
 
     //Fetch data
     $posts = mysqli_fetch_all($posts_result, MYSQLI_ASSOC);
     //Free Result
     mysqli_free_result($posts_result);
+
+    //USERS HIGHSCORE
+    $mazehighscore_query = "SELECT * FROM mazescore WHERE user_name = '$login_session' ORDER BY score DESC";
+    $mazehighscore_result = mysqli_query($conn, $mazehighscore_query);
+    $mazehighscores = mysqli_fetch_all($mazehighscore_result, MYSQLI_ASSOC);
+    mysqli_free_result($mazehighscore_result);
 ?>
 
 <?php
@@ -60,8 +69,42 @@
     </div>
 
     <div class="row no-gutters">
-        <div class="card col-6">
-            <h1>Noget indholde her</h1>
+        <div class="white highscore col-6">
+            <h3>Dine Highscores</h3>
+            <div class="white">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="games/mazegame/illustrationer/dragon.png">
+                    </div>
+                    <div class="col-6">
+                        <h4>Den lille sultne drage</h4>
+                    </div>
+                    <div class="col-3">
+                    <img src="games/mazegame/illustrationer/knight.png">
+                    </div>
+                </div>
+                <?php
+                    $i = 1;
+                    foreach($mazehighscores as $mazehighscore) :
+                    if ($i == 4) { break; } ?>
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-1">
+                                <h2><?php echo $i ?></h2>
+                            </div>
+                            <div class="col-4">
+                                <img src="<?php echo ROOT_URL; ?>illustrationer/koala/<?php echo $avatar; ?>" class="avatar" alt="avatar image">
+                            </div>
+                            <div class="col-7">
+                                <div class="text-left">
+                                    <h3><?php echo $mazehighscore['user_name']; ?></h3>
+                                    <h5><?php echo $mazehighscore['score']; ?> point</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php $i++; endforeach; ?>
+            </div>
         </div>
         <div class="col-6">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
