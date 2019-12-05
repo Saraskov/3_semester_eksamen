@@ -73,14 +73,14 @@
             <h3>Dine Highscores</h3>
             <div class="white">
                 <div class="row">
-                    <div class="col-3">
-                        <img src="games/mazegame/illustrationer/dragon.png">
+                    <div class="col-4">
+                        <img src="games/mazegame/illustrationer/sultneDrage1.png">
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <h4>Den lille sultne drage</h4>
                     </div>
-                    <div class="col-3">
-                    <img src="games/mazegame/illustrationer/knight.png">
+                    <div class="col-4">
+                    <img src="games/mazegame/illustrationer/sultneDrage2.png">
                     </div>
                 </div>
                 <?php

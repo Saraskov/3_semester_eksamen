@@ -17,15 +17,15 @@
     <h1 class="site-header">Spil</h1>
     <div class="row gutter">
         <a href="games/mazegame/mazegame-1.php" class="col-lg-4 col-md-6 col-12">
-            <div class="white">
-                <img src="../illustrationer/koala/coverbillede.png" class="card-img-top" alt="...">
+            <div class="card">
+                <img src="games/mazegame/illustrationer/sultneDrageHel.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h3 class="card-title">Den lille sultne drage</h3>
                 </div>
             </div>
         </a>
         <a href="games/mazegame/mazegame.php" class="col-lg-4 col-md-6 col-12">
-            <div class="white">
+            <div class="card">
                 <img src="../illustrationer/koala/coverbillede.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h3 class="card-title">Den lille sultne drage</h3>
