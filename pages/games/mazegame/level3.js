@@ -4,7 +4,7 @@ let arrayCanvas = [
     [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1],
     [1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 2],
     [4, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
-    [0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 5],
+    [0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
     [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1],
     [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -34,7 +34,7 @@ function createMaze() {
                 ctx.drawImage(grass, i*size, j*size, size, size);
             } else if (arrayCanvas[j][i] == flames){
                 ctx.drawImage(fire, i*size, j*size, size, size);
-            } else if (arrayCanvas[j][i] == sPlayer || 5){
+            } else if (arrayCanvas[j][i] == sPlayer){
                 ctx.drawImage(knight, i*size, j*size, size, size);
             }
         }
