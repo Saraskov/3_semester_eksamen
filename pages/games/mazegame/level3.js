@@ -319,3 +319,4 @@ function endGame(msg, result){
 
 window.addEventListener("load", createMaze);
 window.addEventListener("load", defaultScore);
+window.addEventListener("keydown", keyDownTextField, false);

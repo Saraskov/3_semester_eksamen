@@ -59,3 +59,11 @@ let h3Text = document.querySelector('#win-loose');
 let msgText = document.querySelector('#endscore');
 let button = document.querySelector('#submit');
 let scorePHP = document.querySelector('#scorePHP');
+
+//Slår default med scroll fra, så siden ikke scroller mens man spiller
+function keyDownTextField(e) {
+    var keyCode = e.keyCode;
+    if(keyCode==38 || 40) {
+      event.preventDefault()
+    }
+  }
