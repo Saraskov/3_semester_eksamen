@@ -7705,6 +7705,10 @@ form {
       color: #444444;
       opacity: 0.7;
       font-size: 15px; }
+  form .sucsses {
+    color: #E3EB9E; }
+  form .fail {
+    color: #990033; }
 
 .btn {
   background-color: #715159;

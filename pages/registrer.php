@@ -122,6 +122,7 @@
                     <div class="col-lg-6 col-sm-12">
                         <label for="efternavn"><h4>Efternavn</h4></label>
                         <input type="text" class="form-control" name="efternavn" id="efternavn">
+                        <p id="enamefail"></p>
                     </div>
                 </div>
                 <div class="row">
