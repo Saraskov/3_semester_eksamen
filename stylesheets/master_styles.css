@@ -7684,7 +7684,8 @@ form {
   max-width: 800px;
   margin: auto; }
   form .form-group {
-    margin: 0 15px; }
+    margin: 0 15px;
+    /* Stuff after this is only to make things more pretty */ }
     form .form-group h4 {
       margin-top: 20px; }
     form .form-group .form-control {
@@ -7705,6 +7706,20 @@ form {
       color: #444444;
       opacity: 0.7;
       font-size: 15px; }
+    form .form-group .input-hidden {
+      position: absolute;
+      left: -9999px; }
+    form .form-group input[type=radio]:checked + label > img {
+      border: 1px solid #FFFAF9;
+      box-shadow: 0 0 3px 3px #802E58; }
+    form .form-group input[type=radio] + label > img {
+      border: 1px solid #444444;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      transition: 500ms all; }
+    form .form-group input[type=radio]:checked + label > img {
+      transform: rotateZ(-10deg) rotateX(10deg); }
 
 .btn {
   background-color: #715159;
