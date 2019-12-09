@@ -6,7 +6,11 @@
 
     //POSTS AND USERS CURRENT AVATAR
     //Find data
-    $posts_query = 'SELECT * FROM posts ORDER BY created_at DESC';
+    $posts_query = 'SELECT user_oplysninger.image, posts.body, posts.author, posts.created_at
+                    FROM posts
+                    INNER JOIN user_oplysninger
+                    ON posts.author = user_oplysninger.user_name
+                    ORDER BY posts.created_at DESC';
     $posts_result = mysqli_query($conn, $posts_query);
 
     //Fetch data
@@ -64,7 +68,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="row center">
-                                <img class="img-comment" src="illustrationer/koala/<?php echo $post['avatar']; ?>" class="card-img" alt="avatar image">
+                                <img class="img-comment" src="illustrationer/koala/<?php echo $post['image']; ?>" class="card-img" alt="avatar image">
                             </div>
                             <div class="row center">
                                 <small class="text-muted">Created on <?php echo $post['created_at']; ?></small>

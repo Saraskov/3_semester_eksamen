@@ -7720,6 +7720,10 @@ form {
       transition: 500ms all; }
     form .form-group input[type=radio]:checked + label > img {
       transform: rotateZ(-10deg) rotateX(10deg); }
+  form .sucsses {
+    color: #88A65F; }
+  form .fail {
+    color: #990033; }
 
 .btn {
   background-color: #715159;

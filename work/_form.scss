@@ -59,6 +59,13 @@ form{
               rotateX(10deg);
           }
     }
+
+    .sucsses{
+        color: $succes;
+    }
+    .fail{
+        color: $fail;
+    }
 }
 
 .btn{

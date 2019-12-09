@@ -10,39 +10,47 @@ function checkform(){
     let by_navn = formElement.by;
 
     //Tjek for username
-    if(username.value == ""){
+    if(username.value === ""){
         failtext("#usernamefail", "Du skal indtaste et brugernavn");
-    }else if (!/^[a-zA-Z0-9æøåÆØÅ]*$/. test(username.value)){
+    }
+    else if (!/^[a-zA-Z0-9æøåÆØÅ]*$/){
         failtext("#usernamefail", "Du kan kun bruge bogstaver og tal i dit brugernavn");
-    }else if (username.value.length < 4){
+    }
+    else if (username.value.length < 4){
         failtext("#usernamefail", "Dit brugernavn skal minumun indeholde 4 bogstaver eller tal");
     }else{
         clear("#usernamefail");
     }
 
     //Tjek for password
-    if(password.value == ""){
+    if(password.value === ""){
         failtext("#passwordfail", "Du skal indtaste et password");
         return false;
     }else if(password.value.length < 8){
-        failtext("#passwordfail", "Du skal indtaste et password");
+        failtext("#passwordfail", "Dit password skal være mindst 8 karakterer");
+        password.value = "";
+        gentagPassword.value = "";
         return false
-    }else if(gentagPassword.value == ""){
+    }else if(gentagPassword.value === ""){
         failtext("#genpassfail", "Du skal gentage dit password");
         clear("#passwordfail");
         return false;
     }else if (!password.value === gentagPassword.value){
-        failtext("#genpassfail", "Du skal gentage dit password");
-        clear("#usernamefail");
+        failtext("#genpassfail", "Det er ikke identisk");
+        password.value = "";
+        gentagPassword.value = "";
         return false;
+    }else{
+        clear("#passwordfail");
+        clear("#genpassfail");
     }
 
     //Tjek fornavn
-    if(fornavn.value == ""){
+    if(fornavn.value === ""){
         console.log("Tjekker navn");
         failtext("#namefail", "Du skal indtaste dit navn");
         return false;
-    }else if (!/^[a-zA-Z]*$/. test(fornavn.value)){
+    }else if (!/^[a-zA-Z]*$/){
         failtext("#namefail", "Du kan kun bruge bogstaver i dit navn");
         return false;
     }else{
@@ -50,21 +58,23 @@ function checkform(){
     }
 
     //Tjek efternavn
-    if(efternavn.value == ""){
+    if(efternavn.value === ""){
         console.log("Tjekker efternavn");
         failtext("#enamefail", "Du skal indtaste dit efternavn");
         return false;
-    } else if (!/^[a-zA-Z]*$/. test(efternavn.value)) {
+    } else if (!/^[a-zA-Z]*$/) {
         failtext("#enamefail", "Du kan kun bruge bogstaver i dit efternavn");
         return false;
+    } else{
+        clear("#enamefail");
     }
 
     //Tjek email
-    if(email.value == ""){
+    if(email.value === ""){
         console.log("tjekker email");
         failtext("#emailfail", "Du skal indtaste en email");
         return false;
-    }else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/. test(email.value)){
+    }else if (!/([a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/){
         failtext("#emailfail", "Du skal skrive en valid email");
         return false;
     }else {
@@ -72,7 +82,7 @@ function checkform(){
     }
 
     //Tjek postnr
-    if(postnr.value == ""){
+    if(postnr.value === ""){
         console.log("tjekker postnr");
         failtext("#postfail", "Du skal indtaste dit postnummer");
         return false;
@@ -84,11 +94,11 @@ function checkform(){
     }
 
     //Tjek by
-    if(by_navn.value == ""){
+    if(by_navn.value === ""){
         console.log("tjekker bynavn");
         failtext("#byfail", "Du skal indtaste den by du bor i");
         return false;
-    }else if (!/^[a-zA-ZæøåÆØÅ]*$/. test(by_navn.value)){
+    }else if (!/^[a-zA-ZæøåÆØÅ]*$/){
         failtext("#byfail", "Du kan kun bruge bogstaver i by navnet");
         return false;
     }else if(by_navn.value.length < 2){
