@@ -4,19 +4,23 @@
     //Create connection to database
     require('../config/db.php');
 ?>
-
 <?php include('../inc/header.php'); ?>
-
 <?php
+    $msg = "";
     //Check for submit
 	if(isset($_POST['submit'])){
         $body = mysqli_real_escape_string($conn, $_POST['body']);
+        if(empty($body)){
+            exit();
+        }else{
+           $query = "INSERT INTO posts(body, author, avatar) VALUES ('$body', '$login_session', '$avatar')";
 
-        $query = "INSERT INTO posts(body, author, avatar) VALUES ('$body', '$login_session', '$avatar')";
+            if(!mysqli_query($conn, $query)){
+                echo 'ERROR: '. mysqli_error($conn);
+            } 
+        }
 
-        if(!mysqli_query($conn, $query)){
-			echo 'ERROR: '. mysqli_error($conn);
-		}
+        
     }
 
     //POSTS AND USERS CURRENT AVATAR
@@ -68,10 +72,10 @@
         </div>
     </div>
 
-    <div class="row no-gutters">
-        <div class="white highscore col-6">
-            <h3>Dine Highscores</h3>
+    <div class="row gutters">
+        <div class="highscore col-6">
             <div class="white">
+            <h3>Dine Highscores</h3>
                 <div class="row">
                     <div class="col-4">
                         <img src="games/mazegame/illustrationer/sultneDrage1.png">
@@ -107,10 +111,11 @@
             </div>
         </div>
         <div class="col-6">
-            <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+            <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?> " onSubmit="return checkpost()" id="checkpost" class="white">
                 <div class="form-group transparent">
                     <label><h3>Nyt oplæg</h3></label>
                     <textarea type="text" name="body" class="form-control" placeholder="Del et tip med resten af spillerne"></textarea>
+                    <p id="bodyfail"></p>
                 </div>
                 <button name="submit" class="btn"><h4>Send</h4></button>
             </form>
@@ -124,7 +129,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="row center">
-                            <img class="img-comment" src="../illustrationer/koala/<?php echo $post['avatar']; ?>" class="card-img" alt="avatar image">
+                            <img class="img-comment" src="../illustrationer/koala/<?php echo $avatar; ?>" class="card-img" alt="avatar image">
                         </div>
                         <div class="row center">
                             <small class="text-muted">Created on <?php echo $post['created_at']; ?></small>

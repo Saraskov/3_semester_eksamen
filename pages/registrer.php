@@ -70,7 +70,7 @@
                     $sql = "INSERT INTO login(user_name, pass) values('$user_name', '$hashed')";
                     $result = mysqli_query($conn, $sql) or die ("Query virker overhovedet ikke!");
                     $sqlOplysninger = "INSERT INTO user_oplysninger(user_name, for_navn, efter_navn, email, post_nr, by_navn, image) values('$user_name', '$for_navn', '$efter_navn', '$email', '$post_nr', '$by_navn', 'pr_koala.png')";
-                    $resultOplysninger = mysqli_query($conn, $sqlOplysninger) or die ("Oplysnings q uery virker overhovedet ikke!");
+                    $resultOplysninger = mysqli_query($conn, $sqlOplysninger) or die ("Oplysnings query virker overhovedet ikke!");
                     header("location: login.php");
                 }
             }
@@ -84,7 +84,7 @@
 <div class="container">
     <h1 class="site-header">Registrer</h1>
     <div class="form-group">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onSubmit="return checkform()" id="checkform">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onSubmit="return checkform()" class="checkform">
             <div class="form-group">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
