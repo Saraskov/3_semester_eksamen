@@ -249,3 +249,7 @@ function clear(pname){
     p.className = "succes";
     p.innerHTML = "Succes";
 }
+
+function ikkeKlar(msg){
+    alert(msg);
+}

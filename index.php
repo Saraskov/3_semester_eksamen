@@ -85,7 +85,7 @@
                 <?php 
                     $i++;
                     endforeach; ?>
-                <button class="btn"><a href='#'><h4>Se flere</h4></a></button>
+                <button class="btn" onclick="ikkeKlar('Meningen er at javascriptet skal udvide til flere kommentarer')"><h4>Se flere</h4></button>
             </div>
         </div>
     </div>

@@ -73,7 +73,7 @@
     </div>
 
     <div class="row gutters">
-        <div class="highscore col-6">
+        <div class="highscore col-lg-6 col-sm-12">
             <div class="white">
             <h3>Dine Highscores</h3>
                 <div class="row">
@@ -110,7 +110,7 @@
                 <?php $i++; endforeach; ?>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-sm-12">
             <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?> " onSubmit="return checkpost()" id="checkpost" class="white">
                 <div class="form-group transparent">
                     <label><h3>Nyt oplæg</h3></label>
@@ -146,7 +146,7 @@
             <?php 
                 $i++;
                 endforeach; ?>
-            <button class="btn"><a href='#'><h4>Se flere</h4></a></button>
+            <button class="btn" onclick="ikkeKlar('Meningen er at javascriptet skal udvide til flere kommentarer')"><h4>Se flere</h4></button>
             </div>
         </div>
     </div>

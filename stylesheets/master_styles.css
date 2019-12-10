@@ -7621,8 +7621,9 @@ h5 {
 p {
   color: #444444;
   font-size: 18px; }
-small{
-    color: #B9919A !important; }
+
+small {
+  color: #444444; }
 
 .hidden {
   display: none; }
