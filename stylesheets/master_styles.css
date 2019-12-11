@@ -7637,6 +7637,9 @@ a {
   a small:hover {
     color: #715159;
     text-decoration-color: #715159; }
+  a h4:hover {
+    text-decoration-color: #FFFF;
+    opacity: 0.7; }
 
 .hidden {
   display: none; }

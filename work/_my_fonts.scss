@@ -55,4 +55,9 @@ a{
         color: $dark;
         text-decoration-color: $dark;
     }
+
+    h4:hover{
+        text-decoration-color: $white;
+        opacity: 0.7;
+    }
 }
