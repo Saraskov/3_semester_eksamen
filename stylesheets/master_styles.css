@@ -7624,9 +7624,26 @@ p {
 
 small {
   color: #444444; }
+  small a {
+    color: #802E58; }
+  small a:hover {
+    color: #715159;
+    text-decoration-color: #715159; }
+
+a {
+  color: #802E58; }
+  a small {
+    color: #802E58; }
+  a small:hover {
+    color: #715159;
+    text-decoration-color: #715159; }
 
 .hidden {
   display: none; }
+
+footer {
+  text-align: center;
+  padding: 15px 0; }
 
 body {
   background: url(../illustrationer/bagground.png);

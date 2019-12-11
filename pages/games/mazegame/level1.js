@@ -152,7 +152,9 @@ function checkFlames(){
     } else {
         hungry.play();
         msg="Du skal bruge mere ild, for at spise fåret!";
-        endGame(msg, 0);
+        setTimeout(function(){
+            endGame(msg, 0);
+        },500);
     }
 }
 
@@ -163,14 +165,18 @@ function forestFire() {
     createMaze();
     
     msg = "Du startede en skovbrænd!"
-    endGame(msg, 0);
+    setTimeout(function(){
+        endGame(msg, 0);
+    },500);
 }
 
 //funktion der siger -1 hver gang man trykker på en keyboard tast
 function defaultScore(){
     if (score <= 0) {
         msg = "Du har ikke flere træk tilbage";
-        endGame(msg, 0);
+        setTimeout(function(){
+            endGame(msg, 0);
+        },500);
     } else {
         score -= point;
         scoreText.innerHTML = score;

@@ -10,7 +10,6 @@ let player = -1;
 let goal = 3;
 let flames = 2;
 let sPlayer = 4;
-let sPlayer2 = 5;
 
 //Tomt array til test af flammer
 let msg;

@@ -36,5 +36,23 @@ p{
 }
 
 small{
-    color: $par-text-color; 
+    color: $par-text-color;
+    a{
+        color: $border-color;
+    }
+    a:hover{
+        color: $dark;
+        text-decoration-color: $dark;
+    }
+}
+
+a{
+    color: $border-color;
+    small{
+        color: $border-color;
+    }
+    small:hover{
+        color: $dark;
+        text-decoration-color: $dark;
+    }
 }

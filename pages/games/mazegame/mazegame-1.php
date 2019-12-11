@@ -9,11 +9,14 @@ session_start();
         if(isset($_GET['submit'])){
             $currentScore = mysqli_real_escape_string($conn, $_GET['currentScore']);
             $login_session = mysqli_real_escape_string($conn, $_GET['user_name']);
+            $winLoose = mysqli_real_escape_string($conn, $_GET['submit']); //Value på knappen
 
-            if($currentScore != 0){
+            if($winLoose != 0){
                 $sql = "INSERT INTO mazescore(user_name, score) values('$login_session', '$currentScore')";
                 $result = mysqli_query($conn, $sql) or die ("Query virker overhovedet ikke!");
                 header("location:mazegame-2.php?currentScore=".$_GET['currentScore']);
+            }else{
+                header("location:mazegame-1.php?");
             }
         }
 ?>

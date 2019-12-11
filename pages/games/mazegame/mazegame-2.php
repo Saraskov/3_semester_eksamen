@@ -15,11 +15,15 @@ session_start();
             $level2Score = mysqli_real_escape_string($conn, $_GET['player-end-score']);
             $login_session = mysqli_real_escape_string($conn, $_GET['user_name']);
             $oldCurrentScore = mysqli_real_escape_string($conn, $_GET['currentScore']);
-            if($currentScore != 0){
+            $winLoose = mysqli_real_escape_string($conn, $_GET['submit']); //Value på knappen
+
+            if($winLoose != 0){
                 $currentScore = $oldCurrentScore + $level2Score;
                 $sql = "INSERT INTO mazescore(user_name, score) values('$login_session', '$currentScore')";
                 $result = mysqli_query($conn, $sql) or die ("Query virker overhovedet ikke!");
-                // header("location:mazegame-3.php?currentScore=".$_GET['currentScore2']);
+                header("location:mazegame-3.php?currentScore=".$currentScore);
+            }else{
+                header("location:mazegame-1.php?");
             }
         }
 ?>

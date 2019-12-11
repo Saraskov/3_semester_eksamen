@@ -188,6 +188,8 @@ session_start();
                         <label for="ninja" class="radio-billede col-lg-4 col-sm-12"><img src="../illustrationer/koala/pr_ninja.png" alt="Koala ninja"></label>
                         <input type="radio" name="billede" id="viking" class="input-hidden" value="pr_viking.png"/>
                         <label for="viking" class="radio-billede col-lg-4 col-sm-12"><img src="../illustrationer/koala/pr_viking.png" alt="Koala viking"></label>
+                        <input type="radio" name="billede" id="jul" class="input-hidden" value="pr_jul.png"/>
+                        <label for="jul" class="radio-billede col-lg-4 col-sm-12"><img src="../illustrationer/koala/pr_jul.png" alt="Koala viking"></label>
                         <p id="imagefail"></p>
                 </div>
             </div>

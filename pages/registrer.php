@@ -1,5 +1,5 @@
 <?php
-    session_start()
+    session_start();
     require('../config/config.php');
 
     //Create connection to database
@@ -97,12 +97,12 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-12">
                         <label for="password"><h4>Kodeord</h4></label>
-                        <input type="text" class="form-control" name="password" placeholder="Mindst 8 tegn">
+                        <input type="password" class="form-control" name="password" placeholder="Mindst 8 tegn">
                         <p id="passwordfail"></p>
                     </div>
                     <div class="col-lg-6 col-sm-12">
                         <label for="gentagPassword"><h4>Gentag kodeord</h4></label>
-                        <input type="text" class="form-control" name="gentagPassword">
+                        <input type="password" class="form-control" name="gentagPassword">
                         <p id="genpassfail"></p>
                     </div>
                 </div>

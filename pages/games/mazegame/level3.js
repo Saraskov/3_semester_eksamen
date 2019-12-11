@@ -2,18 +2,18 @@ let arrayCanvas = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0], 
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, -1],
     [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1],
-    [1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 2],
-    [4, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
-    [0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1],
-    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    [1, 1, 1, 1, 2, 1, 0, 0, 2, 1, 0, 0, 1, 0, 2],
+    [0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
+    [0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
+    [0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1],
+    [0, 1, 1, 0, 1, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0],
+    [0, 1, 0, 2, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0],
+    [0, 2, 1, 1, 1, 0, 1, 2, 1, 0, 0, 0, 1, 0, 2],
+    [0, 1, 2, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1], 
+    [0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0],
+    [0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1],
+    [0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0],
+    [1, 3, 1, 0, 0, 0, 0, 0, 1, 2, 0, 0, 1, 1, 0]
 ];
 
 
@@ -22,9 +22,6 @@ function createMaze() {
         for(i = 0; i<arrayCanvas[j].length; i++){
             if(arrayCanvas[j][i] == 1){
                 ctx.drawImage(tree, i*size, j*size, size, size);
-                //Istedet for nedstående måde at farve på, så har jeg brugt drawImage funktion
-                // ctx.fillStyle = "red";
-                // ctx.fillRect(i*size, j*size, size, size);
             }else if (arrayCanvas[j][i] == -1){
                 player = { j, i };
                 ctx.drawImage(dragon, i*size, j*size, size, size);
@@ -167,7 +164,9 @@ function checkFlames(){
     } else {
         hungry.play();
         msg="Du skal bruge mere ild, for at spise fåret!";
-        endGame(msg, 0);
+        setTimeout(function(){
+            endGame(msg, 0);
+        },500);
     }
 }
 
@@ -178,14 +177,18 @@ function forestFire() {
     createMaze();
     
     msg = "Du startede en skovbrænd!"
-    endGame(msg, 0);
+    setTimeout(function(){
+        endGame(msg, 0);
+    },500);
 }
 
 //funktion der siger -1 hver gang man trykker på en keyboard tast
 function defaultScore(){
     if (score <= 0) {
         msg = "Du har ikke flere træk tilbage";
-        endGame(msg, 0);
+        setTimeout(function(){
+            endGame(msg, 0);
+        },500);
     } else {
         score -= point;
         scoreText.innerHTML = score;
@@ -206,88 +209,75 @@ function playSound(){
 }
 
 //sPlayer/Knight funktioner
-// var startKnight = setInterval(startKnightfunc, 1500);
- var startKnight2 = setInterval(knightWalk2, 1600);
+var startKnight = setInterval(knightWalk, 900);
 
-// function startKnightfunc() {
-//     // knightWalk();
-//     knightWalk2();
-//     createMaze();
-// }
 
-// function knightWalk(){
-//     sPlayerWalk++;
-//     if (sPlayerWalk < 5){
-//         for(j = 0; j<arrayCanvas.length; j++){
-//             for(i = 0; i<arrayCanvas[j].length; i++){
-//                 if (arrayCanvas[j][i] == sPlayer){
-//                     if(arrayCanvas[j + 1][i] == 0){
-//                         arrayCanvas[j + 1][i] = 4;
-//                         arrayCanvas[j][i] = 0;
-//                     } else if (arrayCanvas[j + 1][i] == -1){
-//                         arrayCanvas[j + 1][i] = 4;
-//                         arrayCanvas[j][i] = 0;
-//                         dead();
-//                     }
-//                 }
-//             }
-//         }
-//     } else if (sPlayerWalk < 9){
-//         for(j = 0; j<arrayCanvas.length; j++){
-//             for(i = 0; i<arrayCanvas[j].length; i++){
-//                 if (arrayCanvas[j][i] == 4){
-//                     if(arrayCanvas[j - 1][i] == 0){
-//                         arrayCanvas[j - 1][i] = 4;
-//                         arrayCanvas[j][i] = 0; 
-//                     } else if (arrayCanvas[j - 1][i] == -1){
-//                         arrayCanvas[j - 1][i] = 4;
-//                         arrayCanvas[j][i] = 0;
-//                         dead();
-//                     }
-//                 }
-//             }
-//         }
-//     } else if (sPlayerWalk > 8) {
-//         sPlayerWalk = 0;
-//     }
-// }
-
-function knightWalk2(){
-    sPlayerWalk2++;
-    if (sPlayerWalk2 < 10){
+function knightWalk(){
+    sPlayerWalk++;
+    if (sPlayerWalk < 5){
         for(j = 0; j<arrayCanvas.length; j++){
             for(i = 0; i<arrayCanvas[j].length; i++){
                 if (arrayCanvas[j][i] == sPlayer){
-                    if(arrayCanvas[j + 1][i] == 0){
-                        console.log("sPlayer2 = " + sPlayerWalk2);
-                        arrayCanvas[j + 1][i] = 4;
+                    if(arrayCanvas[j][i - 1] == 0){
+                        arrayCanvas[j][i - 1] = 4;
                         arrayCanvas[j][i] = 0;
-                    } else if (arrayCanvas[j + 1][i] == -1){
-                        arrayCanvas[j + 1][i] = 4;
+                    } else if (arrayCanvas[j][i - 1] == -1){
+                        arrayCanvas[j][i - 1] = 4;
                         arrayCanvas[j][i] = 0;
                         dead();
                     }
+                    
+                    createMaze();
                 }
             }
         }
-    } else if (sPlayerWalk2 < 19){
+    } else if (sPlayerWalk < 8){
         for(j = 0; j<arrayCanvas.length; j++){
             for(i = 0; i<arrayCanvas[j].length; i++){
-                if (arrayCanvas[j][i] == sPlayer){
+                if (arrayCanvas[j][i] == 4){
+                    if(arrayCanvas[j + 1][i] == 0){
+                        arrayCanvas[j + 1][i] = 4;
+                        arrayCanvas[j][i] = 0; 
+                    } else if (arrayCanvas[j + 1][i] == -1){
+                        arrayCanvas[j + 1][i] = 4;
+                        arrayCanvas[j][i] = 0;
+                    }
+                    createMaze();
+                }
+            }
+        }
+    } else if (sPlayerWalk < 12){
+        for(j = 0; j<arrayCanvas.length; j++){
+            for(i = 0; i<arrayCanvas[j].length; i++){
+                if (arrayCanvas[j][i] == 4){
+                    if(arrayCanvas[j][i + 1] == 0){
+                        arrayCanvas[j][i + 1] = 4;
+                        arrayCanvas[j][i] = 0; 
+                    } else if (arrayCanvas[j][i + 1] == -1){
+                        arrayCanvas[j][i + 1] = 4;
+                        arrayCanvas[j][i] = 0;
+                    }
+                    createMaze();
+                }
+            }
+        }
+    } else if (sPlayerWalk < 15){
+        for(j = 0; j<arrayCanvas.length; j++){
+            for(i = 0; i<arrayCanvas[j].length; i++){
+                if (arrayCanvas[j][i] == 4){
                     if(arrayCanvas[j - 1][i] == 0){
-                        console.log("sPlayer2 = " + sPlayerWalk2);
                         arrayCanvas[j - 1][i] = 4;
                         arrayCanvas[j][i] = 0; 
                     } else if (arrayCanvas[j - 1][i] == -1){
                         arrayCanvas[j - 1][i] = 4;
                         arrayCanvas[j][i] = 0;
-                        dead();
                     }
+                    createMaze();
                 }
             }
         }
-    } else if (sPlayerWalk2 > 18) {
-        sPlayerWalk2 = 0;
+    } else if (sPlayerWalk > 14) {
+        sPlayerWalk = 0;
     }
 }
 
@@ -309,7 +299,7 @@ function endGame(msg, result){
         button.innerHTML = "<h4>Prøv igen</h4>";
         button.value = "0";
     }else if(result == 1){
-        button.innerHTML = "<h4>Næste bane</h4>";
+        button.innerHTML = "<h4>Gem score</h4>";
         scorePHP.value = score;
         msgText.innerHTML = "Din score er: " + score;
         button.value = "1";

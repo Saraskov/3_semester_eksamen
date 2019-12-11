@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="password"><h4>Kodeord</h4></label>
-                        <input type="text" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password">
                     </div>
                 </div>
             </div>
