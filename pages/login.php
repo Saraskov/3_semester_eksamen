@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('../config/config.php');
 
     //Create connection to database
@@ -17,7 +18,6 @@
         $result = mysqli_query($conn, $sql) or die("Query virker ikke!: " . $sql);
 
         if (mysqli_num_rows($result) == 1){
-            session_start();
             $_SESSION['adgang'] = "$user_name";
 
             header("location:games.php");

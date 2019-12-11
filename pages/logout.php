@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('../config/config.php');
 
     //Create connection to database
@@ -9,9 +10,8 @@
 <?php include('../inc/header.php'); ?>
 
 <?php
-    session_start();
     session_destroy();
-    header("location:". ROOT_URL . "index.php");
+    alert("du er logget ud");
 ?>
 
 <?php include('../inc/footer.php'); ?>
